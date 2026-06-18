@@ -1,0 +1,30 @@
+[workspace]
+authors = ["Ben Yang <benjaminyang@autel.com>"]
+channels = ["conda-forge", "robostack-staging"]
+name = "robot_reachability"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[tasks]
+import-robots = "python scripts/import_robots.py"
+verify = "python visualization/verify_load.py"
+view = "python visualization/view_robot.py"
+reach-fr3 = "python reachability/fk_reachability.py franka_fr3v2"
+reach-fr3-sc = "python reachability/fk_reachability.py franka_fr3v2 --collision"
+reachmap-fr3 = "python reachability/reach_map.py franka_fr3v2 --orient 24 --restarts 6 --collision"
+rate-fr3 = "python reachability/rate_map.py franka_fr3v2 --collision"
+view-reach = "python visualization/view_reachability.py franka_fr3v2"
+view-reachmap = "python visualization/view_reachmap.py franka_fr3v2"
+view-rate = "python visualization/view_rate.py franka_fr3v2"
+
+[dependencies]
+python = "3.11.*"
+ros-humble-xacro = "*"
+yourdfpy = "*"
+trimesh = "*"
+numpy = "*"
+networkx = "*"
+lxml = "*"
+pycollada = ">=0.9.3,<0.10"
+viser = ">=1.0.29,<2"
+pinocchio = ">=3.7.0,<4"

@@ -1,0 +1,17 @@
+# pixi environments
+.pixi/*
+!.pixi/config.toml
+
+# generated intermediates (raw xacro output + ament shim)
+build/
+
+# python
+__pycache__/
+*.pyc
+
+# Vendored upstream sources: large (~360 MB) with nested .git, re-cloneable via
+# the provenance table in README.md.
+third_party/
+
+# Generated analysis outputs (regenerable via `pixi run reach-fr3-sc` etc.)
+results/
